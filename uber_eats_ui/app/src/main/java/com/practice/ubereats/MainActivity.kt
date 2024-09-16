@@ -37,10 +37,10 @@ class MainActivity : ComponentActivity() {
 }
 
 
-//
-//@Composable
-//@Preview
-//fun App(){}
+
+@Composable
+@Preview
+fun App(){}
 
 @Composable
 @Preview
@@ -49,7 +49,7 @@ fun Categories(){
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.background(MaterialTheme.colorScheme.background)) {
 
-        Card (modifier = Modifier.fillMaxWidth().weight(0.5f).padding(horizontal = 5.dp)) {
+        Card (modifier = Modifier.fillMaxWidth().weight(0.5f).padding(horizontal = 5.dp, vertical = 5.dp)) {
             Row(horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically){
                 Column(verticalArrangement = Arrangement.SpaceBetween, modifier=Modifier.weight(4f).padding(horizontal = 10.dp)){
 
@@ -63,7 +63,7 @@ fun Categories(){
             }
         }
 
-        Card (modifier = Modifier.fillMaxWidth().weight(0.5f).padding(horizontal = 5.dp)) {
+        Card (modifier = Modifier.fillMaxWidth().weight(0.5f).padding(horizontal = 5.dp, vertical = 5.dp)) {
             Row(horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically){
                 Column(verticalArrangement = Arrangement.SpaceBetween, modifier=Modifier.weight(4f).padding(horizontal = 10.dp)){
 
@@ -82,7 +82,11 @@ fun Categories(){
 }
 
 
+@Composable
+@Preview
+fun SearchBar(){
 
+}
 
 
 
