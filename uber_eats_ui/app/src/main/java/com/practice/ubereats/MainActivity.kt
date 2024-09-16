@@ -42,7 +42,6 @@ class MainActivity : ComponentActivity() {
 //@Preview
 //fun App(){}
 
-
 @Composable
 @Preview
 fun Categories(){
