@@ -68,7 +68,7 @@ fun App(){
         Options()
     }
 }
-
+//TODO - change promo fill & Outline
 @Composable
 @Preview
 fun Categories(){
