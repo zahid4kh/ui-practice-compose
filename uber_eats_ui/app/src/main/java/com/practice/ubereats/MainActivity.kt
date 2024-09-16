@@ -11,13 +11,21 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -38,9 +46,14 @@ class MainActivity : ComponentActivity() {
 
 
 
-@Composable
-@Preview
-fun App(){}
+//@Composable
+//@Preview
+//fun App(){
+//    Column(modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)){
+//        SearchBar()
+//        Categories()
+//    }
+//}
 
 @Composable
 @Preview
@@ -49,9 +62,14 @@ fun Categories(){
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.background(MaterialTheme.colorScheme.background)) {
 
-        Card (modifier = Modifier.fillMaxWidth().weight(0.5f).padding(horizontal = 5.dp, vertical = 5.dp)) {
+        Card (modifier = Modifier
+            .fillMaxWidth()
+            .weight(0.5f)
+            .padding(horizontal = 5.dp, vertical = 5.dp)) {
             Row(horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically){
-                Column(verticalArrangement = Arrangement.SpaceBetween, modifier=Modifier.weight(4f).padding(horizontal = 10.dp)){
+                Column(verticalArrangement = Arrangement.SpaceBetween, modifier= Modifier
+                    .weight(4f)
+                    .padding(horizontal = 10.dp)){
 
                     Text(text = "Promo", modifier=Modifier.padding(vertical = 10.dp))
                     Text(text = "Restaurants", modifier=Modifier.padding(vertical = 10.dp))
@@ -63,9 +81,14 @@ fun Categories(){
             }
         }
 
-        Card (modifier = Modifier.fillMaxWidth().weight(0.5f).padding(horizontal = 5.dp, vertical = 5.dp)) {
+        Card (modifier = Modifier
+            .fillMaxWidth()
+            .weight(0.5f)
+            .padding(horizontal = 5.dp, vertical = 5.dp)) {
             Row(horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically){
-                Column(verticalArrangement = Arrangement.SpaceBetween, modifier=Modifier.weight(4f).padding(horizontal = 10.dp)){
+                Column(verticalArrangement = Arrangement.SpaceBetween, modifier= Modifier
+                    .weight(4f)
+                    .padding(horizontal = 10.dp)){
 
                     Text(text = "Promo", modifier=Modifier.padding(vertical = 10.dp))
                     Text(text = "Lebensmittel", modifier=Modifier.padding(vertical = 10.dp))
@@ -85,7 +108,17 @@ fun Categories(){
 @Composable
 @Preview
 fun SearchBar(){
-
+    var text by remember { mutableStateOf("") }
+    OutlinedTextField(
+        value = text,
+        onValueChange = {text = it},
+        placeholder = {Text("Essen, Lebensmittel, Getränke...")},
+        shape = MaterialTheme.shapes.extraLarge,
+        leadingIcon = { Icon(Icons.Default.Search, "", modifier = Modifier.padding(start=10.dp))},
+        trailingIcon = { Icon(Icons.AutoMirrored.Filled.List, "", modifier = Modifier.padding(end = 10.dp)) },
+        colors = TextFieldDefaults.colors(),
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 5.dp)
+    )
 }
 
 
