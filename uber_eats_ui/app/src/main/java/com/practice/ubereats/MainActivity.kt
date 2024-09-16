@@ -123,8 +123,13 @@ fun SearchBar(){
 
 
 
+@Composable
+@Preview
+fun Options(){
+    Row(){
 
-
+    }
+}
 
 
 
