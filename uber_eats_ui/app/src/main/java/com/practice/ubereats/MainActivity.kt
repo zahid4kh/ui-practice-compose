@@ -16,8 +16,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.List
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
@@ -72,6 +70,8 @@ fun App(){
 @Composable
 @Preview
 fun Categories(){
+    val restaurantVector = ImageVector.vectorResource(R.drawable.restaurant)
+    val foodVector = ImageVector.vectorResource(R.drawable.food)
     Row (horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.background(MaterialTheme.colorScheme.background)) {
@@ -82,15 +82,15 @@ fun Categories(){
             .padding(horizontal = 5.dp, vertical = 5.dp)) {
             Row(horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically){
                 Column(verticalArrangement = Arrangement.SpaceBetween, modifier= Modifier
-                    .weight(4f)
+                    .weight(3f)
                     .padding(horizontal = 10.dp)){
 
-                    Text(text = "Promo", modifier=Modifier.padding(vertical = 10.dp))
+                    //Text(text = "Promo", modifier=Modifier.padding(vertical = 10.dp))
                     Text(text = "Restaurants", modifier=Modifier.padding(vertical = 10.dp), fontWeight = FontWeight.Bold)
                 }
                 Column(verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally,
                     modifier=Modifier.weight(1f)){
-                    Icon(imageVector = Icons.Default.LocationOn, contentDescription = "")
+                    Icon(restaurantVector, contentDescription = "", modifier=Modifier.padding(10.dp))
                 }
             }
         }
@@ -101,15 +101,15 @@ fun Categories(){
             .padding(horizontal = 5.dp, vertical = 5.dp)) {
             Row(horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically){
                 Column(verticalArrangement = Arrangement.SpaceBetween, modifier= Modifier
-                    .weight(4f)
+                    .weight(3f)
                     .padding(horizontal = 10.dp)){
 
-                    Text(text = "Promo", modifier=Modifier.padding(vertical = 10.dp))
-                    Text(text = "Lebensmittel", modifier=Modifier.padding(vertical = 10.dp), fontWeight = FontWeight.Bold)
+                    //Text(text = "Promo", modifier=Modifier.padding(vertical = 10.dp))
+                    Text(text = "Food", modifier=Modifier.padding(vertical = 10.dp), fontWeight = FontWeight.Bold)
                 }
                 Column(verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally,
                     modifier=Modifier.weight(1f)){
-                    Icon(imageVector = Icons.Default.Home, contentDescription = "")
+                    Icon(foodVector, contentDescription = "", modifier=Modifier.padding(10.dp))
                 }
             }
         }
