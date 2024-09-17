@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -34,9 +33,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -239,11 +236,9 @@ fun Options(){
 @Composable
 @Preview
 fun Pics(){
-//    val pizza1: Painter = painterResource(R.drawable.pizza1)
-//    val pizza2: Painter = painterResource(R.drawable.pizza2)
-//    val pizza3: Painter = painterResource(R.drawable.pizza3)
-//    val pagerState = rememberPagerState (pageCount = {3})
-//    HorizontalPager(state = pagerState, beyondBoundsPageCount = 1){page->
+
+    val pagerState = rememberPagerState (pageCount = {3})
+    HorizontalPager(state = pagerState, beyondBoundsPageCount = 1){page->
 //        when (page){
 //            0 -> Image(painter = pizza1, contentDescription = "", modifier = Modifier.fillMaxSize().padding(10.dp))
 //
