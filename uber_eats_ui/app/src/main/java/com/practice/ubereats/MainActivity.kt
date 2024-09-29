@@ -15,8 +15,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Search
@@ -237,19 +235,6 @@ fun Options(){
 @Preview
 fun Pics(){
 
-    val pagerState = rememberPagerState (pageCount = {3})
-    HorizontalPager(state = pagerState, beyondBoundsPageCount = 1){page->
-//        when (page){
-//            0 -> Image(painter = pizza1, contentDescription = "", modifier = Modifier.fillMaxSize().padding(10.dp))
-//
-//            1 -> Image(painter = pizza2, contentDescription = "", modifier = Modifier.fillMaxSize().padding(10.dp))
-//
-//            2 -> Image(painter = pizza3, contentDescription = "", modifier = Modifier.fillMaxSize().padding(10.dp))
-//
-//        }
-
-
-    }
 }
 
 
