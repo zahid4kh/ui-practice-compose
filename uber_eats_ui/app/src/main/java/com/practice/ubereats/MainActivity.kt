@@ -5,7 +5,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,6 +18,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Search
@@ -31,9 +36,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -59,7 +69,8 @@ class MainActivity : ComponentActivity() {
 fun App(){
     Column(modifier = Modifier
         .fillMaxSize()
-        .background(MaterialTheme.colorScheme.background)){
+        .background(MaterialTheme.colorScheme.background)
+        .verticalScroll(ScrollState(1), enabled = true)){
 
         Spacer(modifier=Modifier.height(50.dp))
         SearchBar()
@@ -234,6 +245,37 @@ fun Options(){
 @Composable
 @Preview
 fun Pics(){
+    val textColor = MaterialTheme.colorScheme.onBackground
+    Column(modifier = Modifier.fillMaxWidth().padding(horizontal = 10.dp).background(MaterialTheme.colorScheme.background)){
+        Card(modifier = Modifier.fillMaxWidth().padding(top = 5.dp)){
+            Image(painter = painterResource(id = R.drawable._3295049_5193138), contentDescription = "")
+        }
+        Row(horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.horizontalScroll(ScrollState(0), enabled = true)){
+            Column(modifier=Modifier.fillMaxWidth().padding(top = 3.dp)){
+                Text(text = "Italian Pizza", fontWeight = FontWeight.Bold, color = textColor)
+
+                Row(modifier = Modifier.fillMaxWidth()){
+                    Text(text = "Gesponsert", textDecoration = TextDecoration.Underline, color = textColor )
+                    Text(" | ", color = textColor)
+                    Text(text = "€0 Liefergebühr", color = colorResource(R.color.OrangeDark))
+                    Text(" | ", color = textColor)
+                    Text("10-25 Min.", color = textColor)
+                }
+            }
+
+            Column(modifier = Modifier
+                .fillMaxSize()
+                .clip(shape = CircleShape)
+                .background(Color.LightGray),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally){
+
+                Text("4.3", fontSize = 10.sp, fontWeight = FontWeight.Bold)
+            }
+        }
+    }
+
 
 }
 
